@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+}
+
+/* Cover */
+.cover {
+  height: 200px;
+  background: #1877f2;
+  position: relative;
+}
+
+/* Profile Picture */
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid white;
+  background: white;
+}
+
+/* Profile Info */
+.profile-info {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.bio {
+  color: gray;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.menu button {
+  padding: 10px 20px;
+  border: none;
+  background: #1877f2;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background: #145dbf;
+}
+
+/* Content */
+.content {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .profile-pic {
+    width: 110px;
+    height: 110px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu button {
+    width: 90%;
+  }
+}
