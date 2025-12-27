@@ -8,8 +8,6 @@
     --primary-color: #1e40af;
     --secondary-color: #0ea5e9;
     --accent-color: #06b6d4;
-    --dark-bg: #0f172a;
-    --light-bg: #f8fafc;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
     --border-color: #e2e8f0;
@@ -19,12 +17,62 @@
     --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-color: #3b82f6;
+    --secondary-color: #06b6d4;
+    --accent-color: #10b981;
+    --text-primary: #e0e7ff;
+    --text-secondary: #a0aec0;
+    --border-color: #2d3748;
+    --success-color: #10b981;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
     color: var(--text-primary);
     min-height: 100vh;
     padding: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: var(--text-primary);
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toggle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.1) rotate(20deg);
+    box-shadow: var(--shadow-lg);
+}
+
+.toggle-btn:active {
+    transform: scale(0.95);
 }
 
 .container {
@@ -37,6 +85,12 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: var(--shadow-lg);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .container {
+    background: #1a1a2e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* === SIDEBAR STYLES === */
@@ -67,47 +121,17 @@ body {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Verify Badge SVG (Blue Checkmark) */
-.verify-badge {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    width: 32px;
-    height: 32px;
-    background: #1DA1F2;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border: 3px solid white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.verify-badge svg {
-    width: 18px;
-    height: 18px;
-}
-
 .profile-name {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.verified-badge {
-    width: 10px;
-    height: 16px;
     display: center;
     align-items: center;
     justify-content: center;
-    color: #060af5e2;
-    font-size: 15px;
+    gap: 6px;
 }
+
+
 
 .profile-title {
     font-size: 14px;
@@ -131,23 +155,106 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 25px;
+    animation: slideInStats 0.8s ease-out;
+}
+
+@keyframes slideInStats {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .stat {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .stat-number {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 800;
+    animation: fadeInNumber 0.6s ease-out backwards;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.stat-number:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.stat:nth-child(2) .stat-number {
+    animation-delay: 0.4s;
+}
+
+.stat:nth-child(3) .stat-number {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInNumber {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotateY(-20deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotateY(0);
+    }
 }
 
 .stat-label {
     font-size: 11px;
-    opacity: 0.85;
+    opacity: 0.95;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    animation: fadeInLabel 0.6s ease-out backwards;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stat:nth-child(1) .stat-label {
+    animation-delay: 0.3s;
+}
+
+.stat:nth-child(2) .stat-label {
+    animation-delay: 0.5s;
+}
+
+.stat:nth-child(3) .stat-label {
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeInLabel {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
 }
 
 .social-links {
@@ -339,7 +446,6 @@ body {
     text-align: center;
     border: 2px solid var(--border-color);
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .skill-card:hover {
@@ -424,60 +530,7 @@ body {
     margin-bottom: 10px !important;
 }
 
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
 
-.project-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
-}
-
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
-
-.project-image {
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.project-card h3 {
-    padding: 20px 20px 10px;
-    font-size: 16px;
-    color: var(--text-primary);
-}
-
-.project-card p {
-    padding: 0 20px 15px;
-    font-size: 13px;
-    margin: 0;
-}
-
-.project-tags {
-    padding: 0 20px 20px;
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.tag {
-    background: var(--light-bg);
-    color: var(--primary-color);
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-}
 
 /* Contact Form */
 .contact-form {
@@ -495,6 +548,19 @@ body {
     font-family: inherit;
     transition: all 0.3s ease;
     background: var(--light-bg);
+    color: var(--text-primary);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background: #0f172a;
+    border-color: #2d3748;
+    color: var(--text-primary);
 }
 
 .contact-form input:focus,
@@ -503,6 +569,12 @@ body {
     border-color: var(--primary-color);
     background: white;
     box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+body.dark-mode .contact-form input:focus,
+body.dark-mode .contact-form textarea:focus {
+    background: #16213e;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .submit-button {

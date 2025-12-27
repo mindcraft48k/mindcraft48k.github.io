@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <div class="theme-toggle">
+        <button id="darkModeToggle" class="toggle-btn" title="Toggle Dark Mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    
     <div class="container">
         <!-- Left Column: Profile Info -->
         <aside class="profile-sidebar">
@@ -28,12 +35,12 @@
                 
                 <div class="profile-stats">
                     <div class="stat">
-                        <span class="stat-number">Coming</span>
-                        <span class="stat-label">Added</span>
+                        <span class="stat-number">Web</span>
+                        <span class="stat-label">Developer</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">Coming</span>
-                        <span class="stat-label">Adding</span>
+                        <span class="stat-number">pc</span>
+                        <span class="stat-label">Gamer</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">98%</span>
@@ -47,7 +54,6 @@
                     <a href="https://www.facebook.com/profile.php?id=61583046045492" class="social-btn" title="Facebook"><i class="fab fa-facebook"></i></a>
                 </div>
                 
-                <button class="cta-button">Hire Me</button>
                 <button class="secondary-button">Cell-01806016721</button>
             </div>
         </aside>
@@ -178,5 +184,38 @@
     </div>
     
     <script src="script.js"></script>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+
+        // Check for saved preference or default to light mode
+        const prefersDark = localStorage.getItem('darkMode') === 'true';
+        if (prefersDark) {
+            document.body.classList.add('dark-mode');
+            updateToggleIcon();
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            updateToggleIcon();
+        });
+
+        // Update toggle icon
+        function updateToggleIcon() {
+            const icon = darkModeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                darkModeToggle.title = 'Toggle Light Mode';
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                darkModeToggle.title = 'Toggle Dark Mode';
+            }
+        }
+    </script>
 </body>
 </html>
