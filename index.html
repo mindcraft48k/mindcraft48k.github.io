@@ -1,51 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <div class="container">
+        <!-- Left Column: Profile Info -->
+        <aside class="profile-sidebar">
+            <div class="profile-card">
+                <div class="profile-image-wrapper">
+                    <img src="images/v1.jpg" alt="Profile Picture" class="profile-image">
+                </div>
+                
+                <h1 class="profile-name">
+                    Rahat Hossain
+                    <span class="verified-badge" title="This Is Verify Account On Google LLc. HTML Approved.">
+                        <i class="fas fa-check-circle"></i>
+                    </span>
+                </h1>
+                
+                <p class="profile-title">Web Developer & UI Designer</p>
+                <p class="profile-location"><i class="fas fa-map-marker-alt"></i> Narayanganj Chasara, Dhaka 1400</p>
+                
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-number">Coming</span>
+                        <span class="stat-label">Added</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Coming</span>
+                        <span class="stat-label">Adding</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/8801806016721" class="social-btn" title="WhatsApp: 01806016721"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/rahat.bd2425/" class="social-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61583046045492" class="social-btn" title="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+                
+                <button class="cta-button">Hire Me</button>
+                <button class="secondary-button">Cell-01806016721</button>
+            </div>
+        </aside>
+        
+        <!-- Right Column: Main Content -->
+        <main class="main-content">
+            <!-- About Section -->
+            <section class="content-section about-section">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-text">I'm a <span class="highlight-primary">passionate and dedicated Web Developer</span> with expertise in <span class="highlight-accent">modern web technologies</span>. I specialize in <span class="highlight-tech">HTML, CSS, and JavaScript</span> to create <span class="highlight-primary">stunning, responsive web applications</span>. Beyond web development, I have strong skills in <span class="highlight-accent">PC Technology and Online Management</span>, making me a <span class="highlight-primary">versatile professional</span>. I'm actively learning <span class="highlight-tech">VS Code and advanced web coding techniques</span>. As a <span class="highlight-accent">dedicated gamer</span> (both PC and Online/Offline), I bring <span class="highlight-primary">creativity and problem-solving skills</span> to every project. I love turning <span class="highlight-accent">complex challenges into elegant solutions</span> and am committed to <span class="highlight-primary">continuous learning and growth</span> in the tech industry.</p>
+            </section>
+            
+            <!-- Skills Section -->
+            <section class="content-section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Web Developer</h3>
+                        <p>Professional</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-laptop"></i>
+                        <h3>PC Technology</h3>
+                        <p>Expert</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Online Management</h3>
+                        <p>Intermediate</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-keyboard"></i>
+                        <h3>Web Coding</h3>
+                        <p>Expert</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>VS Code Learning</h3>
+                        <p>Intermediate</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML</h3>
+                        <p>Expert</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-css3"></i>
+                        <h3>CSS</h3>
+                        <p>Expert</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript Logic</h3>
+                        <p>Expert</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>PC Gamer</h3>
+                        <p>Professional</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Online/Offline Gamer</h3>
+                        <p>Professional</p>
+                    </div>
+                </div>
 
-
-  <header class="cover" role="banner">
-    <img src="images/v1.jpg" class="profile-pic" alt="Profile picture of Rahat Hossain">
-  </header>
-
-  <main>
-    <section class="profile-info" aria-label="Profile">
-      <h1 tabindex="0">Rahat Hossain</h1>
-      <p class="bio">Web Developer <span aria-hidden="true">|</span> Student <span aria-hidden="true">|</span> Learner</p>
-    </section>
-
-    <nav class="menu" aria-label="Main navigation">
-      <button onclick="showSection('about')" aria-controls="about" aria-label="Show About section">About</button>
-      <button onclick="showSection('posts')" aria-controls="posts" aria-label="Show Social section">Social</button>
-      <button onclick="showSection('contact')" aria-controls="contact" aria-label="Show Contact section">Contact</button>
-    </nav>
-
-    <section class="content" aria-live="polite">
-      <section id="about" class="section active" aria-labelledby="about-heading">
-        <h2 id="about-heading">About Me</h2>
-        <p>Hello! I am learning web development using HTML, CSS, and JavaScript. I enjoy building modern, responsive websites and exploring new technologies.</p>
-      </section>
-
-      <section id="posts" class="section" aria-labelledby="social-heading">
-        <h2 id="social-heading">Social</h2>
-        <p>Follow me on social media!</p>
-        <ul>
-          <li><a href="https://www.facebook.com/profile.php?id=61583046045492" target="_blank" rel="noopener" aria-label="Facebook profile">Facebook</a></li>
-        </ul>
-      </section>
-
-      <section id="contact" class="section" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <p>Email: <a href="mailto:rahathossainshafin@gmail.com">rahathossainshafin@gmail.com</a></p>
-      </section>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+            </section>
+            
+            <!-- Experience Section -->
+            <section class="content-section">
+                <h2 class="section-title">Experience/Demo Only</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Professional Web Developer</h3>
+                            <p class="company">Self-employed</p>
+                            <p class="date">2024 - Present</p>
+                            <p>Creating stunning web applications with HTML, CSS, and JavaScript. Specializing in responsive design and modern web technologies.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Online Management Specialist</h3>
+                            <p class="company">Digital Projects</p>
+                            <p class="date">2023 - 2024</p>
+                            <p>Managed online platforms and coordinated digital projects. Expertise in online content management and platform administration.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Web Coding & PC Technology Expert</h3>
+                            <p class="company">Tech Solutions Hub</p>
+                            <p class="date">2022 - 2023</p>
+                            <p>Developed web coding solutions and provided PC technology support. Training in VS Code and modern development frameworks.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Gaming & Community Management</h3>
+                            <p class="company">Gaming Community</p>
+                            <p class="date">2021 - Present</p>
+                            <p>Active PC and Online/Offline gamer. Participated in gaming tournaments and community management activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+           
+            
+            <!-- Contact Section -->
+            <section class="content-section">
+                <h2 class="section-title">Get In Touch</h2>
+                <p>Have a project in mind? Let's collaborate!</p>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
